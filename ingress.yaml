@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: two-servers-one-deploy-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /v1/*
+        backend:
+          serviceName: two-servers-one-deploy-web-1
+          servicePort: 8080
+      - path: /v2/*
+        backend:
+          serviceName: two-servers-one-deploy-web-2
+          servicePort: 8080

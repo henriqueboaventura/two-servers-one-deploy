@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: two-servers-one-deploy-web-1
+  labels:
+    app: two-servers-one-deploy-web-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: two-servers-one-deploy-web-1
+  template:
+    metadata:
+      labels:
+        app: two-servers-one-deploy-web-1
+    spec:
+      containers:
+      - name: two-servers-one-deploy-web-1-container
+        image: gcr.io/google-samples/hello-app:2.0
+        ports:
+        - containerPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: two-servers-one-deploy-web-2
+  labels:
+    app: two-servers-one-deploy-web-2
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: two-servers-one-deploy-web-2
+  template:
+    metadata:
+      labels:
+        app: two-servers-one-deploy-web-2
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:2.0
+        name: two-servers-one-deploy-web-2-container
+        ports:
+        - containerPort: 8080
