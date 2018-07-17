@@ -5,7 +5,7 @@ metadata:
   labels:
     app: two-servers-one-deploy-web-1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: two-servers-one-deploy-web-1
@@ -27,7 +27,7 @@ metadata:
   labels:
     app: two-servers-one-deploy-web-2
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: two-servers-one-deploy-web-2

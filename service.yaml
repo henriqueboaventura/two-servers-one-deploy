@@ -24,4 +24,4 @@ spec:
   - port: 8080
     targetPort: 8080
   selector:
-    app: two-servers-one-deploy-web-1
+    app: two-servers-one-deploy-web-2
